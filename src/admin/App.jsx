@@ -29,16 +29,24 @@ const ago = (iso) => {
 const fullDate = (iso) => (iso ? new Date(iso).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '-');
 const hideBroken = (e) => { e.currentTarget.style.visibility = 'hidden'; };
 
-const post = (path, method = 'POST', body) =>
-  fetch(`${API_URL}${path}`, { method, headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+const post = (path, method = 'POST', body) => {
+  const token = localStorage.getItem('nova_admin_token');
+  const headers = { 'Content-Type': 'application/json' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+  return fetch(`${API_URL}${path}`, { method, headers, body: body ? JSON.stringify(body) : undefined });
+};
 
-// Polls the shop server every few seconds.
-const usePoll = (path, ms = 5000) => {
+// Polls the shop server every few seconds with authorization
+const usePoll = (path, ms = 5000, active = true) => {
   const [data, setData] = useState([]);
   const [online, setOnline] = useState(null);
   const load = useCallback(async () => {
+    if (!active) return;
     try {
-      const res = await fetch(`${API_URL}${path}`);
+      const token = localStorage.getItem('nova_admin_token');
+      const headers = {};
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(`${API_URL}${path}`, { headers });
       if (!res.ok) throw new Error('bad status');
       const json = await res.json();
       setData(Array.isArray(json) ? json : []);
@@ -46,12 +54,13 @@ const usePoll = (path, ms = 5000) => {
     } catch {
       setOnline(false);
     }
-  }, [path]);
+  }, [path, active]);
   useEffect(() => {
+    if (!active) return;
     load();
     const id = setInterval(load, ms);
     return () => clearInterval(id);
-  }, [load, ms]);
+  }, [load, ms, active]);
   return { data, online, reload: load };
 };
 
@@ -279,13 +288,62 @@ const exportCsv = (orders) => {
 };
 
 export default function App() {
-  const { data: orders, online, reload: reloadOrders } = usePoll('/api/orders');
-  const { data: events, reload: reloadEvents } = usePoll('/api/events');
-  const { data: catalog } = usePoll('/api/products', 30000);
+  const [token, setToken] = useState(() => localStorage.getItem('nova_admin_token') || '');
+  const [adminUser, setAdminUser] = useState(() => {
+    try {
+      const u = localStorage.getItem('nova_admin_user');
+      return u ? JSON.parse(u) : null;
+    } catch {
+      return null;
+    }
+  });
+  const [loginEmail, setLoginEmail] = useState('selvakumar.itdev@gmail.com');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const [loginLoading, setLoginLoading] = useState(false);
+
+  const isAuthenticated = Boolean(token);
+
+  const { data: orders, online, reload: reloadOrders } = usePoll('/api/orders', 5000, isAuthenticated);
+  const { data: events, reload: reloadEvents } = usePoll('/api/events', 5000, isAuthenticated);
+  const { data: catalog } = usePoll('/api/products', 30000, isAuthenticated);
   const [view, setView] = useState('dashboard');
   const [q, setQ] = useState('');
   const [filter, setFilter] = useState('All');
   const [openId, setOpenId] = useState(null);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoginLoading(true);
+    setLoginError('');
+    try {
+      const res = await fetch(`${API_URL}/api/admin/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: loginEmail, password: loginPassword })
+      });
+      const data = await res.json();
+      if (!res.ok || !data.token) {
+        throw new Error(data.error || 'Authentication failed');
+      }
+      localStorage.setItem('nova_admin_token', data.token);
+      localStorage.setItem('nova_admin_user', JSON.stringify(data.owner));
+      setToken(data.token);
+      setAdminUser(data.owner);
+      setLoginPassword('');
+    } catch (err) {
+      setLoginError(err.message || 'Invalid credentials');
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('nova_admin_token');
+    localStorage.removeItem('nova_admin_user');
+    setToken('');
+    setAdminUser(null);
+  };
 
   const refresh = () => { reloadOrders(); reloadEvents(); };
   const setStatus = async (id, status, reason) => {
@@ -379,6 +437,49 @@ export default function App() {
     activity: ['Activity', 'Everything customers do in your shop, live'],
   };
 
+  if (!isAuthenticated) {
+    return (
+      <div className="login-wrap">
+        <div className="login-card">
+          <div className="login-header">
+            <i><Store size={24} color="#fff" /></i>
+            <h2>Nova Owner Portal</h2>
+            <p>Enter owner credentials to access Nova Mall live orders and controls.</p>
+          </div>
+
+          {loginError && <div className="login-error">{loginError}</div>}
+
+          <form onSubmit={handleLogin}>
+            <div className="login-field">
+              <label>Owner Email</label>
+              <input
+                type="email"
+                required
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
+                placeholder="selvakumar.itdev@gmail.com"
+              />
+            </div>
+            <div className="login-field">
+              <label>Owner Password / Passphrase</label>
+              <input
+                type="password"
+                required
+                value={loginPassword}
+                onChange={(e) => setLoginPassword(e.target.value)}
+                placeholder="Enter owner password"
+                autoFocus
+              />
+            </div>
+            <button type="submit" className="login-btn" disabled={loginLoading}>
+              {loginLoading ? 'Authenticating...' : 'Sign In to Dashboard'}
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="shell">
       <aside className="side">
@@ -389,9 +490,15 @@ export default function App() {
             {id === 'orders' && stats.toPack.length > 0 && <span className="badge-n">{stats.toPack.length}</span>}
           </button>
         ))}
-        <div className="owner">
-          <img src="/selva.jpg" alt="Owner" />
-          <div><b>Selva Kumar</b><span>Store Owner</span></div>
+        <div className="owner" style={{ flexWrap: 'wrap', gap: '8px' }}>
+          <img src="/selva.jpg" alt="Owner" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <b>{adminUser?.name || 'Selva Kumar'}</b>
+            <span>Store Owner</span>
+          </div>
+          <button className="logout-btn" onClick={handleLogout} title="Sign Out">
+            <LogOut size={14} /> Sign out
+          </button>
         </div>
       </aside>
 
@@ -405,7 +512,7 @@ export default function App() {
         </div>
 
         {online === false && (
-          <div className="banner">Cannot reach the shop server. Make sure <code>npm run dev</code> is running in the project folder.</div>
+          <div className="banner">Cannot reach the shop server. Please verify network connectivity or API deployment.</div>
         )}
 
         {view === 'dashboard' && (

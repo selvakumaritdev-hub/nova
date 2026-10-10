@@ -35,6 +35,22 @@
   --accent-cyan: #06B6D4;
   --accent-violet: #8B5CF6;
 
+  /* Amazon-Inspired Retail Palette Tokens */
+  --amazon-navy: #131921;
+  --amazon-navy-light: #232f3e;
+  --amazon-orange: #ff9900;
+  --amazon-orange-hover: #e47911;
+  --amazon-amber: #febd69;
+  --amazon-yellow-btn: #ffd814;
+  --amazon-yellow-btn-hover: #f7ca00;
+  --amazon-deal-red: #cc0c39;
+  --amazon-prime-blue: #007185;
+  --amazon-light-bg: #eaeded;
+  --amazon-white-card: #ffffff;
+  --amazon-card-border: #e0e0e0;
+  --amazon-ink: #0f1111;
+  --amazon-muted: #565959;
+
   /* Gradients */
   --grad-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
   --grad-gold: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
@@ -596,4 +612,96 @@ h1, h2, h3, h4, h5, h6 {
   body {
     padding-bottom: calc(var(--mobile-nav-height) + 12px);
   }
+}
+
+/* ==========================================================================
+   Amazon-Inspired Dense 4 to 6 Column Product Grid
+   ========================================================================== */
+.product-grid-dense {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .product-grid-dense {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid-dense {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1380px) {
+  .product-grid-dense {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1680px) {
+  .product-grid-dense {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* Amazon Retail Badges & Actions */
+.badge-bestseller {
+  background: #e67a00;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-prime-deal {
+  background: var(--amazon-deal-red);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.badge-prime-tag {
+  color: #007185;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.btn-amazon-quick {
+  background: var(--amazon-yellow-btn);
+  color: #0f1111;
+  border: 1px solid #fcd200;
+  border-radius: 9999px;
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-amazon-quick:hover {
+  background: var(--amazon-yellow-btn-hover);
+  transform: translateY(-1px);
 }

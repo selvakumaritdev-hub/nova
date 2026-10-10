@@ -76,12 +76,12 @@ export const mysteryVaultRewards = [
 ];
 
 export const brandsData = [
-  { name: "Apple", logo: "🍎", tag: "Innovation Flagship", count: "140+ Items" },
-  { name: "Sony", logo: "🎧", tag: "Acoustic Excellence", count: "95+ Items" },
-  { name: "Nike", logo: "⚡", tag: "Athletic Precision", count: "210+ Items" },
-  { name: "Dyson", logo: "🌀", tag: "Engineering Marvels", count: "48+ Items" },
-  { name: "Bose", logo: "🔊", tag: "Spatial Immersion", count: "62+ Items" },
-  { name: "Rolex", logo: "👑", tag: "Timeless Horology", count: "35+ Items" },
-  { name: "Samsung", logo: "✨", tag: "Next-Gen Displays", count: "180+ Items" },
-  { name: "Prada", logo: "💎", tag: "Haute Couture", count: "84+ Items" }
+  { name: "Apple", logo: "🍎", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg", tag: "Innovation Flagship", count: "140+ Items" },
+  { name: "Sony", logo: "🎧", image: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg", tag: "Acoustic Excellence", count: "95+ Items" },
+  { name: "Nike", logo: "⚡", image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg", tag: "Athletic Precision", count: "210+ Items" },
+  { name: "Dyson", logo: "🌀", image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Dyson_logo.svg", tag: "Engineering Marvels", count: "48+ Items" },
+  { name: "Bose", logo: "🔊", image: "https://upload.wikimedia.org/wikipedia/commons/6/67/Bose_logo.svg", tag: "Spatial Immersion", count: "62+ Items" },
+  { name: "Rolex", logo: "👑", image: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Rolex_logo.svg", tag: "Timeless Horology", count: "35+ Items" },
+  { name: "Samsung", logo: "✨", image: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg", tag: "Next-Gen Displays", count: "180+ Items" },
+  { name: "Prada", logo: "💎", image: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Prada-Logo.svg", tag: "Haute Couture", count: "84+ Items" }
 ];

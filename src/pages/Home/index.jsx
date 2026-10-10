@@ -28,9 +28,11 @@ export const Home = () => {
   const { t, language } = useLanguage();
 
   const [flashProducts, setFlashProducts] = useState([]);
+  const [techProducts, setTechProducts] = useState([]);
+  const [fashionProducts, setFashionProducts] = useState([]);
+  const [jewelleryProducts, setJewelleryProducts] = useState([]);
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [recommendedProducts, setRecommendedProducts] = useState([]);
-  const [newArrivals, setNewArrivals] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -38,18 +40,22 @@ export const Home = () => {
     const loadHomeData = async () => {
       try {
         setLoading(true);
-        const [flash, trending, recs, all] = await Promise.all([
+        const [flash, tech, fashion, jewellery, trending, recs] = await Promise.all([
           apiService.getFlashSaleProducts(),
+          apiService.getProducts({ category: 'electronics', limit: 6 }),
+          apiService.getProducts({ category: 'fashion-men', limit: 6 }),
+          apiService.getProducts({ category: 'jewellery', limit: 6 }),
           apiService.getTrendingProducts(),
-          apiService.getRecommendedProducts(),
-          apiService.getProducts({ sortBy: 'newest', limit: 8 })
+          apiService.getRecommendedProducts()
         ]);
 
         if (isMounted) {
-          setFlashProducts(flash);
-          setTrendingProducts(trending);
-          setRecommendedProducts(recs);
-          setNewArrivals(all);
+          setFlashProducts(Array.isArray(flash) ? flash : flash?.products || []);
+          setTechProducts(Array.isArray(tech) ? tech : tech?.products || []);
+          setFashionProducts(Array.isArray(fashion) ? fashion : fashion?.products || []);
+          setJewelleryProducts(Array.isArray(jewellery) ? jewellery : jewellery?.products || []);
+          setTrendingProducts(Array.isArray(trending) ? trending : trending?.products || []);
+          setRecommendedProducts(Array.isArray(recs) ? recs : recs?.products || []);
           setLoading(false);
         }
       } catch (err) {
@@ -219,6 +225,9 @@ export const Home = () => {
                   <img
                     src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80"
                     alt="Nova Horizon Showcase"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&q=80";
+                    }}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
 
@@ -329,6 +338,9 @@ export const Home = () => {
                 <img
                   src={cat.image}
                   alt={catName}
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80";
+                  }}
                   style={{
                     position: 'absolute',
                     inset: 0,
@@ -375,8 +387,8 @@ export const Home = () => {
       {/* 3. FLASH SALE LIVE SECTION */}
       <section className="container">
         {loading ? (
-          <div className="product-grid">
-            {Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)}
+          <div className="product-grid-dense">
+            {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
           </div>
         ) : (
           <FlashSaleSection products={flashProducts} />
@@ -388,7 +400,37 @@ export const Home = () => {
         <MysteryDealCard />
       </section>
 
-      {/* 5. TRENDING PRODUCTS */}
+      {/* 5. BEST SELLERS IN TECH & AUDIO */}
+      <section className="container">
+        <div className="section-header row">
+          <div>
+            <span className="section-tag" style={{ color: 'var(--amazon-amber)', borderColor: 'rgba(254, 189, 105, 0.3)' }}>
+              Flagship Innovation
+            </span>
+            <h2 className="section-title">Best Sellers in Tech & Audio</h2>
+            <p className="section-subtitle">Spatial audio transceivers, OLED ultrabooks, mechanical keyboards, and studio gear.</p>
+          </div>
+
+          <Link to="/shop?category=electronics" className="btn btn-secondary btn-sm">
+            <span>Explore Electronics</span>
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+
+        {loading ? (
+          <div className="product-grid-dense">
+            {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
+          </div>
+        ) : (
+          <div className="product-grid-dense">
+            {techProducts.slice(0, 6).map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* 6. TRENDING LUXURY DROPS */}
       <section className="container">
         <div className="section-header row">
           <div>
@@ -407,43 +449,110 @@ export const Home = () => {
         </div>
 
         {loading ? (
-          <div className="product-grid">
-            {Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)}
+          <div className="product-grid-dense">
+            {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
           </div>
         ) : (
-          <div className="product-grid">
-            {trendingProducts.map((p) => (
+          <div className="product-grid-dense">
+            {trendingProducts.slice(0, 6).map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </div>
         )}
       </section>
 
-      {/* 6. RECOMMENDED FOR YOU */}
+      {/* 7. LUXURY MENSWEAR & TIMEPIECES */}
       <section className="container">
-        <div className="section-header">
-          <span className="section-tag">
-            <Sparkles size={14} />
-            <span>Curated For You</span>
-          </span>
-          <h2 className="section-title">{t('section_recommended')}</h2>
-          <p className="section-subtitle">{t('section_recommended_sub')}</p>
+        <div className="section-header row">
+          <div>
+            <span className="section-tag" style={{ color: '#F59E0B', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
+              Sartorial Excellence
+            </span>
+            <h2 className="section-title">Luxury Menswear & Tailored Heritage</h2>
+            <p className="section-subtitle">Mongolian cashmere topcoats, bespoke Italian blazers, and handcrafted Goodyear-welted oxfords.</p>
+          </div>
+
+          <Link to="/shop?category=fashion-men" className="btn btn-secondary btn-sm">
+            <span>Explore Menswear</span>
+            <ArrowRight size={15} />
+          </Link>
         </div>
 
         {loading ? (
-          <div className="product-grid">
-            {Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)}
+          <div className="product-grid-dense">
+            {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
           </div>
         ) : (
-          <div className="product-grid">
-            {recommendedProducts.map((p) => (
+          <div className="product-grid-dense">
+            {fashionProducts.slice(0, 6).map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </div>
         )}
       </section>
 
-      {/* 7. POPULAR BRANDS MARQUEE / GRID */}
+      {/* 8. FINE JEWELLERY & HIGH GLAMOUR */}
+      <section className="container">
+        <div className="section-header row">
+          <div>
+            <span className="section-tag" style={{ color: '#EC4899', borderColor: 'rgba(236, 72, 153, 0.3)' }}>
+              High Jewellery
+            </span>
+            <h2 className="section-title">Fine Jewellery & Diamond Heirlooms</h2>
+            <p className="section-subtitle">18K solid gold signets, VVS diamond tennis bracelets, and Japanese Akoya pearls.</p>
+          </div>
+
+          <Link to="/shop?category=jewellery" className="btn btn-secondary btn-sm">
+            <span>Explore Jewellery</span>
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+
+        {loading ? (
+          <div className="product-grid-dense">
+            {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
+          </div>
+        ) : (
+          <div className="product-grid-dense">
+            {jewelleryProducts.slice(0, 6).map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* 9. RECOMMENDED FOR YOU */}
+      <section className="container">
+        <div className="section-header row">
+          <div>
+            <span className="section-tag">
+              <Sparkles size={14} />
+              <span>Curated For You</span>
+            </span>
+            <h2 className="section-title">{t('section_recommended')}</h2>
+            <p className="section-subtitle">{t('section_recommended_sub')}</p>
+          </div>
+
+          <Link to="/shop?sort=recommended" className="btn btn-secondary btn-sm">
+            <span>View All Curations</span>
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+
+        {loading ? (
+          <div className="product-grid-dense">
+            {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
+          </div>
+        ) : (
+          <div className="product-grid-dense">
+            {recommendedProducts.slice(0, 6).map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* 10. POPULAR BRANDS MARQUEE / GRID */}
       <section className="container">
         <div className="section-header text-center" style={{ alignItems: 'center', textAlign: 'center', margin: '0 auto 2.5rem' }}>
           <span className="section-tag">Global Partners</span>
@@ -474,40 +583,28 @@ export const Home = () => {
                 gap: '8px'
               }}
             >
-              <span style={{ fontSize: '2.2rem' }}>{brand.logo}</span>
+              {brand.image ? (
+                <div style={{ height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img
+                    src={brand.image}
+                    alt={brand.name}
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.nextElementSibling;
+                      if (fallback) fallback.style.display = 'block';
+                    }}
+                    style={{ maxHeight: '30px', maxWidth: '80px', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.85 }}
+                  />
+                  <span style={{ fontSize: '2rem', display: 'none' }}>{brand.logo}</span>
+                </div>
+              ) : (
+                <span style={{ fontSize: '2.2rem' }}>{brand.logo}</span>
+              )}
               <h4 style={{ fontSize: '1rem', fontWeight: 800 }}>{brand.name}</h4>
               <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{brand.count}</span>
             </Link>
           ))}
         </div>
-      </section>
-
-      {/* 8. NEW ARRIVALS */}
-      <section className="container">
-        <div className="section-header row">
-          <div>
-            <span className="section-tag">Latest Innovations</span>
-            <h2 className="section-title">{t('section_new_arrivals')}</h2>
-            <p className="section-subtitle">{t('section_new_arrivals_sub')}</p>
-          </div>
-
-          <Link to="/shop?sort=newest" className="btn btn-secondary btn-sm">
-            <span>Explore Drops</span>
-            <ArrowRight size={15} />
-          </Link>
-        </div>
-
-        {loading ? (
-          <div className="product-grid">
-            {Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)}
-          </div>
-        ) : (
-          <div className="product-grid">
-            {newArrivals.slice(0, 4).map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-        )}
       </section>
 
       {/* 9. NOVA+ VIP MEMBERSHIP BANNER */}

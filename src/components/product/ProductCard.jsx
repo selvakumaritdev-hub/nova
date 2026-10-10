@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Heart, Eye, ShoppingBag, Star, Check, Layers, RotateCw } from 'lucide-react';
+import { Heart, Eye, ShoppingBag, Star, Check, Layers, RotateCw, Zap, ShieldCheck } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
 import { useCompare } from '../../context/CompareContext';
@@ -59,7 +59,7 @@ export const ProductCard = ({ product }) => {
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.25 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="glass-panel-interactive"
@@ -68,35 +68,44 @@ export const ProductCard = ({ product }) => {
           flexDirection: 'column',
           position: 'relative',
           borderRadius: 'var(--radius-md)',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          background: 'var(--bg-card)',
+          border: '1px solid var(--border-subtle)',
+          boxShadow: isHovered ? 'var(--shadow-md)' : 'var(--shadow-sm)',
+          transition: 'box-shadow 0.2s ease, border-color 0.2s ease'
         }}
       >
-        {/* Top Badges */}
+        {/* Top Badges Stack (Amazon Style) */}
         <div
           style={{
             position: 'absolute',
-            top: '12px',
-            left: '12px',
+            top: '10px',
+            left: '10px',
             zIndex: 10,
             display: 'flex',
             flexDirection: 'column',
-            gap: '6px',
+            gap: '4px',
             pointerEvents: 'none'
           }}
         >
-          {product.discountPercentage > 15 && (
+          {product.isBestSeller && (
+            <span className="badge-bestseller">
+              #1 Best Seller
+            </span>
+          )}
+          {product.isFlashSale && (
+            <span className="badge-prime-deal">
+              Deal of the Day
+            </span>
+          )}
+          {product.discountPercentage > 15 && !product.isFlashSale && (
             <span className="badge badge-sale">
               -{product.discountPercentage}% OFF
             </span>
           )}
-          {product.isNew && (
+          {product.isNew && !product.isBestSeller && !product.isFlashSale && (
             <span className="badge badge-new">
               NEW
-            </span>
-          )}
-          {product.stock <= 5 && (
-            <span className="badge badge-gold">
-              Only {product.stock} left
             </span>
           )}
         </div>
@@ -107,12 +116,12 @@ export const ProductCard = ({ product }) => {
           className="btn-icon"
           style={{
             position: 'absolute',
-            top: '12px',
-            right: '12px',
+            top: '10px',
+            right: '10px',
             zIndex: 10,
-            width: '38px',
-            height: '38px',
-            background: inWish ? 'rgba(244, 63, 94, 0.2)' : 'rgba(9, 11, 16, 0.7)',
+            width: '34px',
+            height: '34px',
+            background: inWish ? 'rgba(244, 63, 94, 0.2)' : 'rgba(9, 11, 16, 0.75)',
             borderColor: inWish ? 'var(--accent-rose)' : 'var(--border-subtle)',
             color: inWish ? 'var(--accent-rose)' : 'var(--text-primary)',
             backdropFilter: 'blur(8px)'
@@ -120,7 +129,7 @@ export const ProductCard = ({ product }) => {
           aria-label={inWish ? "Remove from wishlist" : "Add to wishlist"}
         >
           <motion.div whileTap={{ scale: 0.75 }}>
-            <Heart size={18} fill={inWish ? "currentColor" : "none"} />
+            <Heart size={16} fill={inWish ? "currentColor" : "none"} />
           </motion.div>
         </button>
 
@@ -155,14 +164,19 @@ export const ProductCard = ({ product }) => {
             onLoad={() => setImageLoaded(true)}
             onError={(e) => {
               setImageError(true);
-              e.target.src = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80";
+              const fallback = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80";
+              if (e.target.src !== fallback) {
+                e.target.src = fallback;
+              } else {
+                e.target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'><rect width='400' height='400' fill='%2312151e'/><text x='200' y='210' font-family='sans-serif' font-size='16' fill='%236366f1' text-anchor='middle' font-weight='bold'>NOVA LUXURY</text></svg>";
+              }
             }}
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease',
-              transform: isHovered ? 'scale(1.06)' : 'scale(1)'
+              transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+              transform: isHovered ? 'scale(1.05)' : 'scale(1)'
             }}
             loading="lazy"
           />
@@ -174,9 +188,9 @@ export const ProductCard = ({ product }) => {
                 position: 'absolute',
                 bottom: '10px',
                 left: '10px',
-                padding: '3px 8px',
+                padding: '2px 8px',
                 borderRadius: 'var(--radius-full)',
-                background: 'rgba(9, 11, 16, 0.75)',
+                background: 'rgba(9, 11, 16, 0.8)',
                 border: '1px solid var(--border-subtle)',
                 backdropFilter: 'blur(8px)',
                 fontSize: '0.68rem',
@@ -192,18 +206,18 @@ export const ProductCard = ({ product }) => {
             </div>
           )}
 
-          {/* Hover Quick Action Buttons Overlay */}
+          {/* Hover Quick Action Buttons */}
           <div
             style={{
               position: 'absolute',
-              bottom: '12px',
-              left: '12px',
-              right: '12px',
+              bottom: '10px',
+              left: '10px',
+              right: '10px',
               display: 'flex',
-              gap: '8px',
+              gap: '6px',
               opacity: isHovered ? 1 : 0,
-              transform: isHovered ? 'translateY(0)' : 'translateY(12px)',
-              transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+              transform: isHovered ? 'translateY(0)' : 'translateY(10px)',
+              transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
               pointerEvents: isHovered ? 'auto' : 'none',
               zIndex: 5
             }}
@@ -213,12 +227,14 @@ export const ProductCard = ({ product }) => {
               className="btn btn-secondary btn-sm"
               style={{
                 flex: 1,
-                background: 'rgba(15, 19, 28, 0.9)',
-                backdropFilter: 'blur(12px)',
-                boxShadow: 'var(--shadow-sm)'
+                background: 'rgba(15, 19, 28, 0.92)',
+                backdropFilter: 'blur(10px)',
+                boxShadow: 'var(--shadow-sm)',
+                fontSize: '0.75rem',
+                padding: '6px 8px'
               }}
             >
-              <Eye size={14} />
+              <Eye size={13} />
               <span>Quick View</span>
             </button>
 
@@ -226,54 +242,52 @@ export const ProductCard = ({ product }) => {
               onClick={handleCompareClick}
               className="btn-icon btn-sm"
               style={{
-                width: '34px',
-                height: '34px',
-                background: inComp ? 'var(--accent-primary)' : 'rgba(15, 19, 28, 0.9)',
+                width: '32px',
+                height: '32px',
+                background: inComp ? 'var(--accent-primary)' : 'rgba(15, 19, 28, 0.92)',
                 color: inComp ? '#FFFFFF' : 'var(--text-primary)',
-                backdropFilter: 'blur(12px)'
+                backdropFilter: 'blur(10px)'
               }}
               title={inComp ? "Remove from compare" : "Add to compare"}
             >
-              <Layers size={14} />
+              <Layers size={13} />
             </button>
           </div>
         </Link>
 
         {/* Product Details Content */}
-        <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', flex: 1, gap: '8px' }}>
-          {/* Brand & Rating Row */}
+        <div style={{ padding: '12px 14px 14px', display: 'flex', flexDirection: 'column', flex: 1, gap: '6px' }}>
+          {/* Brand & Category */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span
               style={{
-                fontSize: '0.75rem',
+                fontSize: '0.72rem',
                 textTransform: 'uppercase',
-                letterSpacing: '0.06em',
+                letterSpacing: '0.05em',
                 fontWeight: 700,
-                color: 'var(--accent-primary)'
+                color: 'var(--text-muted)'
               }}
             >
               {product.brand}
             </span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', fontWeight: 600 }}>
-              <Star size={13} fill="#F59E0B" color="#F59E0B" />
-              <span>{product.rating}</span>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.72rem' }}>({product.reviewsCount})</span>
-            </div>
+            <span style={{ fontSize: '0.68rem', color: 'var(--accent-primary)', fontWeight: 600 }}>
+              {product.category}
+            </span>
           </div>
 
           {/* Title */}
-          <Link to={`/product/${product.id}`}>
+          <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
             <h3
               style={{
-                fontSize: '0.95rem',
-                fontWeight: 700,
+                fontSize: '0.88rem',
+                fontWeight: 600,
                 color: 'var(--text-primary)',
-                lineHeight: 1.4,
+                lineHeight: 1.35,
                 overflow: 'hidden',
                 display: '-webkit-box',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
-                minHeight: '2.8em'
+                minHeight: '2.7em'
               }}
               title={product.title}
             >
@@ -281,32 +295,63 @@ export const ProductCard = ({ product }) => {
             </h3>
           </Link>
 
-          {/* Price Row */}
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginTop: 'auto', paddingTop: '4px' }}>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>
+          {/* Star Rating Row */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.78rem', fontWeight: 600 }}>
+            <div style={{ display: 'flex', gap: '2px' }}>
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star
+                  key={i}
+                  size={12}
+                  fill={i < Math.floor(product.rating) ? '#F59E0B' : 'none'}
+                  color="#F59E0B"
+                />
+              ))}
+            </div>
+            <span style={{ color: 'var(--text-primary)', fontWeight: 700, marginLeft: '2px' }}>{product.rating}</span>
+            <span style={{ color: 'var(--text-muted)', fontSize: '0.72rem' }}>({product.reviewsCount})</span>
+          </div>
+
+          {/* Fast Delivery Badge (Amazon Prime Style) */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px' }}>
+            <span className="badge-prime-tag">
+              <Zap size={11} fill="currentColor" /> Nova+
+            </span>
+            <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+              Get it by {product.deliveryDays === 1 ? 'Tomorrow' : 'in 2 days'}
+            </span>
+          </div>
+
+          {/* Price Lockup */}
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginTop: 'auto', paddingTop: '6px' }}>
+            <span style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>
               ₹{product.price.toLocaleString('en-IN')}
             </span>
             {product.originalPrice > product.price && (
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textDecoration: 'line-through' }}>
-                ₹{product.originalPrice.toLocaleString('en-IN')}
-              </span>
+              <>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textDecoration: 'line-through' }}>
+                  ₹{product.originalPrice.toLocaleString('en-IN')}
+                </span>
+                <span style={{ fontSize: '0.72rem', color: 'var(--accent-rose)', fontWeight: 700 }}>
+                  ({product.discountPercentage}% off)
+                </span>
+              </>
             )}
           </div>
 
-          {/* Add to Cart Button */}
+          {/* Add to Cart Quick Button */}
           <button
             onClick={handleQuickAdd}
-            className={`btn ${isAdded ? 'btn-secondary' : 'btn-primary'} btn-block btn-sm`}
+            className="btn-amazon-quick"
             style={{ marginTop: '8px' }}
           >
             {isAdded ? (
               <>
-                <Check size={15} color="#10B981" />
-                <span style={{ color: '#10B981' }}>Added!</span>
+                <Check size={14} color="#059669" />
+                <span style={{ color: '#059669' }}>Added to Cart</span>
               </>
             ) : (
               <>
-                <ShoppingBag size={15} />
+                <ShoppingBag size={13} />
                 <span>Add to Cart</span>
               </>
             )}

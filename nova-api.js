@@ -133,7 +133,29 @@ export const apiMiddleware = async (req, res, next) => {
   if (!url.startsWith('/api/')) return next()
 
   try {
-    if (url === '/api/health') return send(res, 200, { ok: true })
+    if (url === '/api/health') return send(res, 200, { ok: true, status: 'online', service: 'Nova Mall Vite Dev' })
+
+    if (url === '/api/admin/login' && req.method === 'POST') {
+      const { email, password } = await readBody(req)
+      const ownerEmail = (process.env.ADMIN_EMAIL || 'selvakumar.itdev@gmail.com').toLowerCase()
+      const ownerPass = process.env.ADMIN_PASSWORD || 'NovaMall@Admin2026!'
+      if ((email || '').trim().toLowerCase() === ownerEmail && (password || '').trim() === ownerPass) {
+        return send(res, 200, {
+          ok: true,
+          token: 'nova_token_' + Date.now(),
+          owner: { name: 'Selva Kumar', email: ownerEmail, role: 'owner' }
+        })
+      }
+      return send(res, 401, { error: 'Invalid owner credentials' })
+    }
+
+    if (url === '/api/admin/verify' && req.method === 'GET') {
+      const auth = req.headers['authorization'] || ''
+      if (auth.startsWith('Bearer ')) {
+        return send(res, 200, { ok: true, valid: true, owner: { name: 'Selva Kumar', role: 'owner' } })
+      }
+      return send(res, 401, { error: 'Unauthorized' })
+    }
 
     if (url === '/api/orders' && req.method === 'GET') return send(res, 200, load(ORDERS))
 
@@ -166,7 +188,70 @@ export const apiMiddleware = async (req, res, next) => {
       return send(res, 200, { ok: true })
     }
 
-    if (url === '/api/products' && req.method === 'GET') return send(res, 200, load(PRODUCTS))
+    if (url === '/api/products' && req.method === 'GET') {
+      const qIndex = (req.url || '').indexOf('?');
+      const searchParams = new URLSearchParams(qIndex >= 0 ? req.url.slice(qIndex) : '');
+      const all = load(PRODUCTS);
+      const id = searchParams.get('id');
+      if (id) {
+        const found = all.find((p) => String(p.id) === String(id));
+        return found ? send(res, 200, found) : send(res, 404, { error: 'Product not found' });
+      }
+
+      let list = [...all];
+      const category = searchParams.get('category');
+      if (category && category !== 'all') {
+        list = list.filter((p) => p.category.toLowerCase() === category.toLowerCase());
+      }
+      const q = (searchParams.get('search') || searchParams.get('q') || '').trim().toLowerCase();
+      if (q) {
+        list = list.filter((p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.brand.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          (p.description && p.description.toLowerCase().includes(q))
+        );
+      }
+      if (searchParams.get('flash') === 'true') list = list.filter((p) => p.isFlashSale);
+      if (searchParams.get('trending') === 'true') list = list.filter((p) => p.isTrending);
+      if (searchParams.get('recommended') === 'true') list = list.filter((p) => p.rating >= 4.8);
+      if (searchParams.get('bestSeller') === 'true') list = list.filter((p) => p.isBestSeller);
+      if (searchParams.get('inStockOnly') === 'true') list = list.filter((p) => p.stock > 0);
+      if (searchParams.get('onSaleOnly') === 'true') list = list.filter((p) => p.discountPercentage > 0);
+      if (searchParams.get('primeOnly') === 'true') list = list.filter((p) => p.isPrimeDelivery || p.price > 5000);
+      const minRating = searchParams.get('minRating');
+      if (minRating) list = list.filter((p) => p.rating >= Number(minRating));
+      const maxPrice = searchParams.get('maxPrice');
+      if (maxPrice) list = list.filter((p) => p.price <= Number(maxPrice));
+
+      const sort = searchParams.get('sortBy') || searchParams.get('sort') || 'recommended';
+      if (sort === 'price-low' || sort === 'price-asc') list.sort((a, b) => a.price - b.price);
+      else if (sort === 'price-high' || sort === 'price-desc') list.sort((a, b) => b.price - a.price);
+      else if (sort === 'newest') list.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+      else if (sort === 'rating') list.sort((a, b) => b.rating - a.rating);
+      else if (sort === 'discount') list.sort((a, b) => (b.discountPercentage || 0) - (a.discountPercentage || 0));
+      else if (sort === 'popular') list.sort((a, b) => (b.reviewsCount || 0) - (a.reviewsCount || 0));
+
+      const total = list.length;
+      const pageStr = searchParams.get('page');
+      const limitStr = searchParams.get('limit');
+      if (pageStr) {
+        const pageNum = Number(pageStr) || 1;
+        const limitNum = Number(limitStr) || 24;
+        const start = (pageNum - 1) * limitNum;
+        return send(res, 200, {
+          products: list.slice(start, start + limitNum),
+          total,
+          page: pageNum,
+          limit: limitNum,
+          totalPages: Math.ceil(total / limitNum)
+        });
+      }
+      if (limitStr) {
+        list = list.slice(0, Number(limitStr) || 24);
+      }
+      return send(res, 200, list);
+    }
 
     if (url === '/api/seed' && req.method === 'POST') {
       const sample = makeSample()

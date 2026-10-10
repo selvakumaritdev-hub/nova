@@ -30,6 +30,9 @@ import { useAuth } from '../../context/AuthContext';
 import { useNotifications } from '../../context/NotificationContext';
 import { NotificationDropdown } from './NotificationDropdown';
 import { apiService } from '../../services/api';
+import { categoriesData } from '../../data/categories';
+import { useAddress } from '../../context/AddressContext';
+import { DeliveryLocationModal } from '../modal/DeliveryLocationModal';
 
 export const Navbar = () => {
   const { totalItemCount, setIsCartOpen } = useCart();
@@ -39,18 +42,21 @@ export const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
   const { user, isAuthenticated, logout } = useAuth();
   const { unreadCount } = useNotifications();
+  const { selectedAddress } = useAddress();
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchResults, setSearchResults] = useState([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
 
   const searchContainerRef = useRef(null);
 
@@ -71,12 +77,17 @@ export const Navbar = () => {
     }
 
     const timer = setTimeout(async () => {
-      const results = await apiService.getProducts({ search: searchQuery, limit: 5 });
-      setSearchResults(results);
-    }, 250);
+      const filters = { search: searchQuery, limit: 6 };
+      if (selectedCategory && selectedCategory !== 'all') {
+        filters.category = selectedCategory;
+      }
+      const results = await apiService.getProducts(filters);
+      const items = Array.isArray(results) ? results : (results.products || []);
+      setSearchResults(items);
+    }, 220);
 
     return () => clearTimeout(timer);
-  }, [searchQuery]);
+  }, [searchQuery, selectedCategory]);
 
   // Click outside search dismiss
   useEffect(() => {
@@ -100,10 +111,13 @@ export const Navbar = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/shop?q=${encodeURIComponent(searchQuery.trim())}`);
-      setIsSearchOpen(false);
-    }
+    const q = searchQuery.trim();
+    const params = new URLSearchParams();
+    if (q) params.set('q', q);
+    if (selectedCategory && selectedCategory !== 'all') params.set('category', selectedCategory);
+    const qs = params.toString();
+    navigate(qs ? `/shop?${qs}` : '/shop');
+    setIsSearchOpen(false);
   };
 
   return (
@@ -194,6 +208,7 @@ export const Navbar = () => {
                 NOVA <span className="text-gradient">MALL</span>
               </span>
               <span
+                className="logo-subtitle"
                 style={{
                   fontSize: '0.62rem',
                   textTransform: 'uppercase',
@@ -208,6 +223,33 @@ export const Navbar = () => {
               </span>
             </div>
           </Link>
+
+          {/* Delivery Location Pill (Amazon Style) */}
+          <div
+            className="nav-deliver-pill"
+            style={{
+              display: 'none',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '6px 10px',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              border: '1px solid transparent',
+              transition: 'border-color 0.2s ease, background 0.2s ease'
+            }}
+            title={selectedAddress ? `Deliver to ${selectedAddress.city} ${selectedAddress.pincode}` : "Select Delivery Location"}
+            onClick={() => setIsLocationModalOpen(true)}
+          >
+            <MapPin size={16} color="var(--amazon-amber)" style={{ marginTop: '2px', flexShrink: 0 }} />
+            <div style={{ lineHeight: 1.15 }}>
+              <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', display: 'block' }}>
+                Deliver to {selectedAddress?.name ? selectedAddress.name.split(' ')[0] : 'You'}
+              </span>
+              <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>
+                {selectedAddress ? `${selectedAddress.city} ${selectedAddress.pincode}` : 'Select Location'}
+              </span>
+            </div>
+          </div>
 
           {/* Desktop Nav Links */}
           <nav
@@ -249,19 +291,59 @@ export const Navbar = () => {
           </nav>
         </div>
 
-        {/* Center: Live Search Bar */}
+        {/* Center: Amazon Mega Search Bar */}
         <div
           ref={searchContainerRef}
           style={{
             flex: 1,
-            maxWidth: '420px',
+            maxWidth: '560px',
             position: 'relative',
             display: 'none'
           }}
           className="desktop-search"
         >
-          <form onSubmit={handleSearchSubmit}>
-            <div style={{ position: 'relative', width: '100%' }}>
+          <form
+            onSubmit={handleSearchSubmit}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              width: '100%',
+              height: '42px',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              background: 'var(--bg-input)',
+              border: '1.5px solid var(--border-medium)',
+              transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+            }}
+            className="amazon-search-form"
+          >
+            {/* Category dropdown selector */}
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              style={{
+                background: 'var(--bg-tertiary)',
+                color: 'var(--text-secondary)',
+                border: 'none',
+                borderRight: '1px solid var(--border-medium)',
+                height: '100%',
+                padding: '0 10px',
+                fontSize: '0.78rem',
+                fontWeight: 600,
+                outline: 'none',
+                cursor: 'pointer',
+                maxWidth: '135px'
+              }}
+              aria-label="Select Category"
+            >
+              <option value="all">All Departments</option>
+              {categoriesData.map(c => (
+                <option key={c.id} value={c.slug}>{c.name}</option>
+              ))}
+            </select>
+
+            {/* Input field */}
+            <div style={{ position: 'relative', flex: 1, height: '100%' }}>
               <input
                 type="text"
                 value={searchQuery}
@@ -270,24 +352,16 @@ export const Navbar = () => {
                   setIsSearchOpen(true);
                 }}
                 onFocus={() => setIsSearchOpen(true)}
-                placeholder={t('nav_search_placeholder')}
-                className="input-field"
+                placeholder="Search Nova Mall, 500+ luxury products, tech..."
                 style={{
-                  paddingLeft: '40px',
-                  paddingRight: '36px',
-                  borderRadius: 'var(--radius-full)',
-                  fontSize: '0.875rem',
-                  background: 'var(--bg-input)'
-                }}
-              />
-              <Search
-                size={17}
-                style={{
-                  position: 'absolute',
-                  left: '14px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  color: 'var(--text-muted)'
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  background: 'transparent',
+                  padding: '0 32px 0 12px',
+                  fontSize: '0.86rem',
+                  color: 'var(--text-primary)',
+                  outline: 'none'
                 }}
               />
               {searchQuery && (
@@ -299,16 +373,45 @@ export const Navbar = () => {
                   }}
                   style={{
                     position: 'absolute',
-                    right: '12px',
+                    right: '8px',
                     top: '50%',
                     transform: 'translateY(-50%)',
-                    color: 'var(--text-muted)'
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--text-muted)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center'
                   }}
                 >
                   <X size={15} />
                 </button>
               )}
             </div>
+
+            {/* Amber Search Button */}
+            <button
+              type="submit"
+              style={{
+                width: '46px',
+                height: '100%',
+                background: 'var(--amazon-amber)',
+                border: 'none',
+                color: '#131921',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                transition: 'background 0.15s ease',
+                flexShrink: 0
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'var(--amazon-orange)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'var(--amazon-amber)'}
+              title="Search"
+              aria-label="Search"
+            >
+              <Search size={18} strokeWidth={2.5} />
+            </button>
           </form>
 
           {/* Autocomplete Results Dropdown */}
@@ -353,13 +456,16 @@ export const Navbar = () => {
                       <img
                         src={p.thumbnail}
                         alt={p.title}
+                        onError={(e) => {
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80";
+                        }}
                         style={{ width: '40px', height: '40px', borderRadius: '4px', objectFit: 'cover' }}
                       />
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ fontSize: '0.85rem', fontWeight: 700, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                           {p.title}
                         </div>
-                        <div style={{ fontSize: '0.78rem', color: 'var(--accent-primary)', fontWeight: 800 }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--amazon-orange)', fontWeight: 800 }}>
                           ₹{p.price.toLocaleString('en-IN')}
                         </div>
                       </div>
@@ -367,7 +473,7 @@ export const Navbar = () => {
                   ))
                 ) : (
                   <div style={{ padding: '12px', fontSize: '0.82rem', color: 'var(--text-muted)', textAlign: 'center' }}>
-                    Type to explore 50,000+ luxury gadgets, fashion, and lifestyle items.
+                    Type to search across 500+ curated luxury products, fashion & tech.
                   </div>
                 )}
               </motion.div>
@@ -378,7 +484,7 @@ export const Navbar = () => {
         {/* Right: Actions (Language, Theme, Notif, Compare, Wishlist, Cart, Profile) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           {/* Language Selector Dropdown */}
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative' }} className="nav-action-desktop">
             <button
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
               className="btn btn-secondary btn-sm"
@@ -498,7 +604,7 @@ export const Navbar = () => {
           {/* Compare Button */}
           <Link
             to="/compare"
-            className="btn-icon"
+            className="btn-icon nav-action-desktop"
             style={{ width: '40px', height: '40px', position: 'relative' }}
             title={t('nav_compare')}
           >
@@ -529,7 +635,7 @@ export const Navbar = () => {
           {/* Wishlist Button */}
           <Link
             to="/wishlist"
-            className="btn-icon"
+            className="btn-icon nav-action-desktop"
             style={{ width: '40px', height: '40px', position: 'relative' }}
             title={t('nav_wishlist')}
           >
@@ -555,6 +661,27 @@ export const Navbar = () => {
                 {wishlistCount}
               </span>
             )}
+          </Link>
+
+          {/* Returns & Orders Quick Link (Amazon Style) */}
+          <Link
+            to="/orders"
+            style={{
+              display: 'none',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              padding: '4px 8px',
+              borderRadius: '6px',
+              textDecoration: 'none',
+              lineHeight: 1.15,
+              border: '1px solid transparent',
+              transition: 'border-color 0.2s ease, background 0.2s ease'
+            }}
+            className="nav-orders-link"
+            title="Returns & Orders"
+          >
+            <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', display: 'block' }}>Returns</span>
+            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>& Orders</span>
           </Link>
 
           {/* Cart Trigger Button */}
@@ -705,6 +832,92 @@ export const Navbar = () => {
         </div>
       </div>
 
+      {/* Amazon Sub-Navbar Department Strip */}
+      <div
+        style={{
+          background: 'var(--amazon-navy-light)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.25)',
+          padding: '0 20px',
+          height: '38px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          fontSize: '0.82rem',
+          color: '#F8FAFC',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap',
+          scrollbarWidth: 'none'
+        }}
+        className="amazon-subnav"
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <Link
+            to="/shop"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontWeight: 800,
+              color: '#FFFFFF',
+              textDecoration: 'none'
+            }}
+            className="subnav-item"
+          >
+            <Menu size={15} />
+            <span>All Departments</span>
+          </Link>
+          <Link to="/shop?sale=true" style={{ color: '#febd69', fontWeight: 800, textDecoration: 'none' }} className="subnav-item">
+            ⚡ Today's Deals
+          </Link>
+          <Link to="/shop?category=electronics" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Electronics
+          </Link>
+          <Link to="/shop?category=computing" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Laptops & PCs
+          </Link>
+          <Link to="/shop?category=mobiles" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Mobiles
+          </Link>
+          <Link to="/shop?category=watches" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Watches
+          </Link>
+          <Link to="/shop?category=fashion-men" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Menswear
+          </Link>
+          <Link to="/shop?category=fashion-women" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Haute Couture
+          </Link>
+          <Link to="/shop?category=jewellery" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Fine Jewellery
+          </Link>
+          <Link to="/shop?category=beauty" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Beauty
+          </Link>
+          <Link to="/nova-plus" style={{ color: '#febd69', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }} className="subnav-item">
+            <Crown size={13} color="#febd69" />
+            <span>Nova+ VIP</span>
+          </Link>
+          <Link to="/stores" style={{ color: '#F8FAFC', textDecoration: 'none' }} className="subnav-item">
+            Flagship Stores
+          </Link>
+        </div>
+
+        <div
+          style={{
+            display: 'none',
+            alignItems: 'center',
+            gap: '8px',
+            fontSize: '0.78rem',
+            color: 'var(--amazon-amber)',
+            fontWeight: 700
+          }}
+          className="subnav-perk"
+        >
+          <span>★ Free Next-Day Delivery with Nova+</span>
+        </div>
+      </div>
+
       {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -736,6 +949,64 @@ export const Navbar = () => {
               </div>
             </form>
 
+            {/* Mobile Delivery Location Selector */}
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsLocationModalOpen(true);
+              }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                background: 'var(--bg-tertiary)',
+                border: '1px solid var(--border-subtle)',
+                color: 'var(--text-primary)',
+                cursor: 'pointer',
+                textAlign: 'left',
+                width: '100%'
+              }}
+            >
+              <MapPin size={18} color="var(--amazon-amber)" style={{ flexShrink: 0 }} />
+              <div style={{ lineHeight: 1.2 }}>
+                <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block' }}>
+                  Deliver to {selectedAddress?.name ? selectedAddress.name.split(' ')[0] : 'You'}
+                </span>
+                <span style={{ fontSize: '0.88rem', fontWeight: 800 }}>
+                  {selectedAddress ? `${selectedAddress.city} ${selectedAddress.pincode}` : 'Select Delivery Location'}
+                </span>
+              </div>
+            </button>
+
+            {/* Mobile Language Selector Chips */}
+            <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', padding: '4px 0', scrollbarWidth: 'none' }}>
+              {languages.map(lang => (
+                <button
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  style={{
+                    padding: '6px 12px',
+                    borderRadius: 'var(--radius-full)',
+                    fontSize: '0.78rem',
+                    fontWeight: language === lang.code ? 800 : 600,
+                    border: language === lang.code ? '1px solid var(--amazon-orange)' : '1px solid var(--border-subtle)',
+                    background: language === lang.code ? 'rgba(255, 153, 0, 0.15)' : 'var(--bg-card)',
+                    color: language === lang.code ? 'var(--amazon-amber)' : 'var(--text-primary)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  <span>{lang.flag}</span>
+                  <span>{lang.label}</span>
+                </button>
+              ))}
+            </div>
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '10px', fontSize: '1rem', fontWeight: 700 }}>
                 {t('nav_home')}
@@ -745,6 +1016,12 @@ export const Navbar = () => {
               </Link>
               <Link to="/stores" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '10px', fontSize: '1rem', fontWeight: 700 }}>
                 {t('nav_stores')}
+              </Link>
+              <Link to="/orders" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '10px', fontSize: '1rem', fontWeight: 700 }}>
+                📦 {t('nav_orders')}
+              </Link>
+              <Link to="/compare" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '10px', fontSize: '1rem', fontWeight: 700 }}>
+                ⚖ {t('nav_compare')}
               </Link>
               <Link to="/nova-plus" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '10px', fontSize: '1rem', fontWeight: 700, color: 'var(--accent-gold)' }}>
                 ★ {t('nav_novaplus')}
@@ -766,12 +1043,60 @@ export const Navbar = () => {
             display: block !important;
           }
         }
+        @media (min-width: 900px) {
+          .nav-deliver-pill {
+            display: flex !important;
+          }
+          .nav-orders-link {
+            display: flex !important;
+          }
+        }
+        @media (min-width: 1280px) {
+          .subnav-perk {
+            display: flex !important;
+          }
+        }
         @media (max-width: 991px) {
           .mobile-menu-toggle {
             display: flex !important;
           }
         }
+        @media (max-width: 768px) {
+          .nav-action-desktop {
+            display: none !important;
+          }
+        }
+        @media (max-width: 420px) {
+          .logo-subtitle {
+            display: none !important;
+          }
+        }
+        .amazon-subnav::-webkit-scrollbar {
+          display: none;
+        }
+        .subnav-item {
+          padding: 4px 8px;
+          border-radius: 4px;
+          transition: background 0.15s ease, color 0.15s ease;
+        }
+        .subnav-item:hover {
+          background: rgba(255, 255, 255, 0.12);
+        }
+        .amazon-search-form:focus-within {
+          border-color: var(--amazon-orange) !important;
+          box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.35) !important;
+        }
+        .nav-deliver-pill:hover, .nav-orders-link:hover {
+          border-color: rgba(255, 255, 255, 0.3) !important;
+          background: rgba(255, 255, 255, 0.06);
+        }
       `}</style>
+
+      {/* Smart Delivery Location Modal */}
+      <DeliveryLocationModal
+        isOpen={isLocationModalOpen}
+        onClose={() => setIsLocationModalOpen(false)}
+      />
     </header>
   );
 };
