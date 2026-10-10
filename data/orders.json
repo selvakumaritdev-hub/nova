@@ -1,0 +1,1956 @@
+[
+  {
+    "id": "NOV-310221",
+    "date": "2026-10-08",
+    "items": [
+      {
+        "id": 106,
+        "title": "Lumix Quantum 4K Laser Cinema Projector",
+        "brand": "Lumix Vision",
+        "category": "electronics",
+        "price": 119999,
+        "originalPrice": 149999,
+        "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 119999,
+    "discount": 12000,
+    "deliveryFee": 0,
+    "total": 107999,
+    "paymentMethod": "Cash on Delivery",
+    "address": {
+      "name": "Divya Krishnan",
+      "phone": "+91 97910 33218",
+      "street": "19, Anna Nagar Main Road",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641002"
+    },
+    "status": "Confirmed",
+    "trackingNumber": "NOV-EXP-96013116",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Divya Krishnan",
+      "email": "divya.k@gmail.com",
+      "phone": "+91 97910 33218"
+    },
+    "receivedAt": "2026-10-08T23:22:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-310053",
+    "date": "2026-10-08",
+    "items": [
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 12499,
+    "discount": 1250,
+    "deliveryFee": 149,
+    "total": 11398,
+    "paymentMethod": "Card (Ending 4821)",
+    "address": {
+      "name": "Divya Krishnan",
+      "phone": "+91 97910 33218",
+      "street": "32, Park Avenue",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641002"
+    },
+    "status": "Confirmed",
+    "trackingNumber": "NOV-EXP-69169752",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Divya Krishnan",
+      "email": "divya.k@gmail.com",
+      "phone": "+91 97910 33218"
+    },
+    "receivedAt": "2026-10-08T16:55:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-310323",
+    "date": "2026-10-08",
+    "items": [
+      {
+        "id": 102,
+        "title": "Apex Celestial Titanium Automatic Chronograph Watch",
+        "brand": "Apex Horology",
+        "category": "accessories",
+        "price": 89999,
+        "originalPrice": 119999,
+        "thumbnail": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 89999,
+    "discount": 3600,
+    "deliveryFee": 0,
+    "total": 86399,
+    "paymentMethod": "UPI (PhonePe)",
+    "address": {
+      "name": "Divya Krishnan",
+      "phone": "+91 97910 33218",
+      "street": "22, Park Avenue",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641002"
+    },
+    "status": "Confirmed",
+    "trackingNumber": "NOV-EXP-41652777",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Divya Krishnan",
+      "email": "divya.k@gmail.com",
+      "phone": "+91 97910 33218"
+    },
+    "receivedAt": "2026-10-08T16:22:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-310423",
+    "date": "2026-10-08",
+    "items": [
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 1
+      },
+      {
+        "id": 107,
+        "title": "AeroStrata Carbon Fiber Ultralight Road Bike",
+        "brand": "AeroStrata",
+        "category": "sports",
+        "price": 145000,
+        "originalPrice": 175000,
+        "thumbnail": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 157499,
+    "discount": 6300,
+    "deliveryFee": 0,
+    "total": 151199,
+    "paymentMethod": "UPI (PhonePe)",
+    "address": {
+      "name": "Priya Sharma",
+      "phone": "+91 98840 11223",
+      "street": "46, MG Road",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "pincode": "600028"
+    },
+    "status": "Packed",
+    "trackingNumber": "NOV-EXP-14288580",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Priya Sharma",
+      "email": "priya.sharma@gmail.com",
+      "phone": "+91 98840 11223"
+    },
+    "receivedAt": "2026-10-08T09:47:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-310962",
+    "date": "2026-10-08",
+    "items": [
+      {
+        "id": 107,
+        "title": "AeroStrata Carbon Fiber Ultralight Road Bike",
+        "brand": "AeroStrata",
+        "category": "sports",
+        "price": 145000,
+        "originalPrice": 175000,
+        "thumbnail": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&q=80",
+        "quantity": 1
+      },
+      {
+        "id": 109,
+        "title": "Aura Smart Ambient Sonic Lamp & Diffuser",
+        "brand": "Aura Living",
+        "category": "home-living",
+        "price": 8499,
+        "originalPrice": 11999,
+        "thumbnail": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 153499,
+    "discount": 6140,
+    "deliveryFee": 0,
+    "total": 147359,
+    "paymentMethod": "UPI (Google Pay)",
+    "address": {
+      "name": "Meera Nair",
+      "phone": "+91 98470 66012",
+      "street": "11, Lake View Street",
+      "city": "Kochi",
+      "state": "Kerala",
+      "pincode": "682016"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-84765817",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Meera Nair",
+      "email": "meera.nair@gmail.com",
+      "phone": "+91 98470 66012"
+    },
+    "receivedAt": "2026-10-08T03:52:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-310588",
+    "date": "2026-10-07",
+    "items": [
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 12499,
+    "discount": 500,
+    "deliveryFee": 149,
+    "total": 12148,
+    "paymentMethod": "Card (Ending 4821)",
+    "address": {
+      "name": "Ananya Iyer",
+      "phone": "+91 99620 55109",
+      "street": "31, MG Road",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560034"
+    },
+    "status": "Confirmed",
+    "trackingNumber": "NOV-EXP-76872684",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Ananya Iyer",
+      "email": "ananya.iyer@gmail.com",
+      "phone": "+91 99620 55109"
+    },
+    "receivedAt": "2026-10-07T15:05:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-310714",
+    "date": "2026-10-07",
+    "items": [
+      {
+        "id": 110,
+        "title": "Sanctuary Reserve White Truffle Gourmet Oil & Salt Set",
+        "brand": "Sanctuary Gourmet",
+        "category": "grocery",
+        "price": 4999,
+        "originalPrice": 6499,
+        "thumbnail": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80",
+        "quantity": 1
+      },
+      {
+        "id": 108,
+        "title": "Sartorial Cashmere Overcoat with Silk Lining",
+        "brand": "Sartoria Milano",
+        "category": "fashion",
+        "price": 28999,
+        "originalPrice": 38999,
+        "thumbnail": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 33998,
+    "discount": 1360,
+    "deliveryFee": 0,
+    "total": 32638,
+    "paymentMethod": "UPI (PhonePe)",
+    "address": {
+      "name": "Meera Nair",
+      "phone": "+91 98470 66012",
+      "street": "27, Anna Nagar Main Road",
+      "city": "Kochi",
+      "state": "Kerala",
+      "pincode": "682016"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-71730709",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Meera Nair",
+      "email": "meera.nair@gmail.com",
+      "phone": "+91 98470 66012"
+    },
+    "receivedAt": "2026-10-07T12:11:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-310863",
+    "date": "2026-10-07",
+    "items": [
+      {
+        "id": 106,
+        "title": "Lumix Quantum 4K Laser Cinema Projector",
+        "brand": "Lumix Vision",
+        "category": "electronics",
+        "price": 119999,
+        "originalPrice": 149999,
+        "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 119999,
+    "discount": 12000,
+    "deliveryFee": 0,
+    "total": 107999,
+    "paymentMethod": "Cash on Delivery",
+    "address": {
+      "name": "Meera Nair",
+      "phone": "+91 98470 66012",
+      "street": "56, Anna Nagar Main Road",
+      "city": "Kochi",
+      "state": "Kerala",
+      "pincode": "682016"
+    },
+    "status": "Cancelled",
+    "trackingNumber": "NOV-EXP-21259259",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Meera Nair",
+      "email": "meera.nair@gmail.com",
+      "phone": "+91 98470 66012"
+    },
+    "receivedAt": "2026-10-07T09:01:15.624Z",
+    "sample": true,
+    "cancelReason": "Delivery is taking too long"
+  },
+  {
+    "id": "NOV-311424",
+    "date": "2026-10-07",
+    "items": [
+      {
+        "id": 101,
+        "title": "Nova Horizon Pro ANC Spatial Wireless Headphones",
+        "brand": "Nova Acoustics",
+        "category": "electronics",
+        "price": 24999,
+        "originalPrice": 32999,
+        "thumbnail": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+        "quantity": 2
+      }
+    ],
+    "subtotal": 49998,
+    "discount": 5000,
+    "deliveryFee": 0,
+    "total": 44998,
+    "paymentMethod": "Card (Ending 4821)",
+    "address": {
+      "name": "Rahul Verma",
+      "phone": "+91 98110 23457",
+      "street": "40, Lake View Street",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-91545909",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Rahul Verma",
+      "email": "rahul.verma@gmail.com",
+      "phone": "+91 98110 23457"
+    },
+    "receivedAt": "2026-10-07T02:10:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-311544",
+    "date": "2026-10-07",
+    "items": [
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 1
+      },
+      {
+        "id": 107,
+        "title": "AeroStrata Carbon Fiber Ultralight Road Bike",
+        "brand": "AeroStrata",
+        "category": "sports",
+        "price": 145000,
+        "originalPrice": 175000,
+        "thumbnail": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 157499,
+    "discount": 6300,
+    "deliveryFee": 0,
+    "total": 151199,
+    "paymentMethod": "Card (Ending 4821)",
+    "address": {
+      "name": "Divya Krishnan",
+      "phone": "+91 97910 33218",
+      "street": "66, Park Avenue",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641002"
+    },
+    "status": "Confirmed",
+    "trackingNumber": "NOV-EXP-92329860",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Divya Krishnan",
+      "email": "divya.k@gmail.com",
+      "phone": "+91 97910 33218"
+    },
+    "receivedAt": "2026-10-07T01:08:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-311299",
+    "date": "2026-10-06",
+    "items": [
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 2
+      }
+    ],
+    "subtotal": 24998,
+    "discount": 1000,
+    "deliveryFee": 0,
+    "total": 23998,
+    "paymentMethod": "UPI (PhonePe)",
+    "address": {
+      "name": "Priya Sharma",
+      "phone": "+91 98840 11223",
+      "street": "84, Lake View Street",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "pincode": "600028"
+    },
+    "status": "Shipped",
+    "trackingNumber": "NOV-EXP-67526619",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Priya Sharma",
+      "email": "priya.sharma@gmail.com",
+      "phone": "+91 98840 11223"
+    },
+    "receivedAt": "2026-10-06T19:55:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-311122",
+    "date": "2026-10-06",
+    "items": [
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 2
+      }
+    ],
+    "subtotal": 24998,
+    "discount": 1000,
+    "deliveryFee": 0,
+    "total": 23998,
+    "paymentMethod": "Card (Ending 9034)",
+    "address": {
+      "name": "Arjun Reddy",
+      "phone": "+91 99520 44871",
+      "street": "20, MG Road",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "pincode": "500081"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-10081404",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Arjun Reddy",
+      "email": "arjun.reddy@gmail.com",
+      "phone": "+91 99520 44871"
+    },
+    "receivedAt": "2026-10-06T18:58:15.624Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-311999",
+    "date": "2026-10-06",
+    "items": [
+      {
+        "id": 107,
+        "title": "AeroStrata Carbon Fiber Ultralight Road Bike",
+        "brand": "AeroStrata",
+        "category": "sports",
+        "price": 145000,
+        "originalPrice": 175000,
+        "thumbnail": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 145000,
+    "discount": 5800,
+    "deliveryFee": 0,
+    "total": 139200,
+    "paymentMethod": "Card (Ending 4821)",
+    "address": {
+      "name": "Karthik Raja",
+      "phone": "+91 98430 77654",
+      "street": "41, Park Avenue",
+      "city": "Madurai",
+      "state": "Tamil Nadu",
+      "pincode": "625001"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-26054397",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Karthik Raja",
+      "email": "karthik.raja@gmail.com",
+      "phone": "+91 98430 77654"
+    },
+    "receivedAt": "2026-10-06T03:39:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-311796",
+    "date": "2026-10-06",
+    "items": [
+      {
+        "id": 110,
+        "title": "Sanctuary Reserve White Truffle Gourmet Oil & Salt Set",
+        "brand": "Sanctuary Gourmet",
+        "category": "grocery",
+        "price": 4999,
+        "originalPrice": 6499,
+        "thumbnail": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 4999,
+    "discount": 500,
+    "deliveryFee": 149,
+    "total": 4648,
+    "paymentMethod": "UPI (PhonePe)",
+    "address": {
+      "name": "Mohammed Faizal",
+      "phone": "+91 98765 21098",
+      "street": "52, Anna Nagar Main Road",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400050"
+    },
+    "status": "Packed",
+    "trackingNumber": "NOV-EXP-11942515",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Mohammed Faizal",
+      "email": "faizal.m@gmail.com",
+      "phone": "+91 98765 21098"
+    },
+    "receivedAt": "2026-10-06T02:40:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-311679",
+    "date": "2026-10-05",
+    "items": [
+      {
+        "id": 101,
+        "title": "Nova Horizon Pro ANC Spatial Wireless Headphones",
+        "brand": "Nova Acoustics",
+        "category": "electronics",
+        "price": 24999,
+        "originalPrice": 32999,
+        "thumbnail": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 24999,
+    "discount": 1000,
+    "deliveryFee": 0,
+    "total": 23999,
+    "paymentMethod": "Card (Ending 9034)",
+    "address": {
+      "name": "Vignesh Kumar",
+      "phone": "+91 97890 12345",
+      "street": "72, Lake View Street",
+      "city": "Trichy",
+      "state": "Tamil Nadu",
+      "pincode": "620001"
+    },
+    "status": "Packed",
+    "trackingNumber": "NOV-EXP-49960261",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Vignesh Kumar",
+      "email": "vignesh.kumar@gmail.com",
+      "phone": "+91 97890 12345"
+    },
+    "receivedAt": "2026-10-05T15:13:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-312100",
+    "date": "2026-10-05",
+    "items": [
+      {
+        "id": 102,
+        "title": "Apex Celestial Titanium Automatic Chronograph Watch",
+        "brand": "Apex Horology",
+        "category": "accessories",
+        "price": 89999,
+        "originalPrice": 119999,
+        "thumbnail": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 89999,
+    "discount": 9000,
+    "deliveryFee": 0,
+    "total": 80999,
+    "paymentMethod": "UPI (PhonePe)",
+    "address": {
+      "name": "Divya Krishnan",
+      "phone": "+91 97910 33218",
+      "street": "12, MG Road",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641002"
+    },
+    "status": "Shipped",
+    "trackingNumber": "NOV-EXP-76740354",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Divya Krishnan",
+      "email": "divya.k@gmail.com",
+      "phone": "+91 97910 33218"
+    },
+    "receivedAt": "2026-10-05T10:28:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-312521",
+    "date": "2026-10-04",
+    "items": [
+      {
+        "id": 104,
+        "title": "Atelier Italian Velvet Ergonomic Lounge Chair",
+        "brand": "Atelier Casa",
+        "category": "furniture",
+        "price": 34999,
+        "originalPrice": 45999,
+        "thumbnail": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 34999,
+    "discount": 3500,
+    "deliveryFee": 0,
+    "total": 31499,
+    "paymentMethod": "Card (Ending 9034)",
+    "address": {
+      "name": "Mohammed Faizal",
+      "phone": "+91 98765 21098",
+      "street": "66, Anna Nagar Main Road",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400050"
+    },
+    "status": "Cancelled",
+    "trackingNumber": "NOV-EXP-62687113",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Pending",
+        "completed": false,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Mohammed Faizal",
+      "email": "faizal.m@gmail.com",
+      "phone": "+91 98765 21098"
+    },
+    "receivedAt": "2026-10-04T16:05:15.625Z",
+    "sample": true,
+    "cancelReason": "Changed my mind"
+  },
+  {
+    "id": "NOV-312677",
+    "date": "2026-10-04",
+    "items": [
+      {
+        "id": 106,
+        "title": "Lumix Quantum 4K Laser Cinema Projector",
+        "brand": "Lumix Vision",
+        "category": "electronics",
+        "price": 119999,
+        "originalPrice": 149999,
+        "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 119999,
+    "discount": 12000,
+    "deliveryFee": 0,
+    "total": 107999,
+    "paymentMethod": "Card (Ending 9034)",
+    "address": {
+      "name": "Vignesh Kumar",
+      "phone": "+91 97890 12345",
+      "street": "52, Lake View Street",
+      "city": "Trichy",
+      "state": "Tamil Nadu",
+      "pincode": "620001"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-64915122",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Vignesh Kumar",
+      "email": "vignesh.kumar@gmail.com",
+      "phone": "+91 97890 12345"
+    },
+    "receivedAt": "2026-10-04T15:42:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-312414",
+    "date": "2026-10-04",
+    "items": [
+      {
+        "id": 107,
+        "title": "AeroStrata Carbon Fiber Ultralight Road Bike",
+        "brand": "AeroStrata",
+        "category": "sports",
+        "price": 145000,
+        "originalPrice": 175000,
+        "thumbnail": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 145000,
+    "discount": 5800,
+    "deliveryFee": 0,
+    "total": 139200,
+    "paymentMethod": "Cash on Delivery",
+    "address": {
+      "name": "Meera Nair",
+      "phone": "+91 98470 66012",
+      "street": "42, MG Road",
+      "city": "Kochi",
+      "state": "Kerala",
+      "pincode": "682016"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-28945601",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Meera Nair",
+      "email": "meera.nair@gmail.com",
+      "phone": "+91 98470 66012"
+    },
+    "receivedAt": "2026-10-04T13:32:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-312257",
+    "date": "2026-10-04",
+    "items": [
+      {
+        "id": 103,
+        "title": "Verve Cyber-OLED Ultra Smartphone (16GB + 512GB)",
+        "brand": "Verve Tech",
+        "category": "electronics",
+        "price": 64999,
+        "originalPrice": 79999,
+        "thumbnail": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 64999,
+    "discount": 6500,
+    "deliveryFee": 0,
+    "total": 58499,
+    "paymentMethod": "Cash on Delivery",
+    "address": {
+      "name": "Karthik Raja",
+      "phone": "+91 98430 77654",
+      "street": "12, Lake View Street",
+      "city": "Madurai",
+      "state": "Tamil Nadu",
+      "pincode": "625001"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-35111496",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Karthik Raja",
+      "email": "karthik.raja@gmail.com",
+      "phone": "+91 98430 77654"
+    },
+    "receivedAt": "2026-10-04T09:55:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-313206",
+    "date": "2026-10-04",
+    "items": [
+      {
+        "id": 109,
+        "title": "Aura Smart Ambient Sonic Lamp & Diffuser",
+        "brand": "Aura Living",
+        "category": "home-living",
+        "price": 8499,
+        "originalPrice": 11999,
+        "thumbnail": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80",
+        "quantity": 1
+      },
+      {
+        "id": 106,
+        "title": "Lumix Quantum 4K Laser Cinema Projector",
+        "brand": "Lumix Vision",
+        "category": "electronics",
+        "price": 119999,
+        "originalPrice": 149999,
+        "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 128498,
+    "discount": 12850,
+    "deliveryFee": 0,
+    "total": 115648,
+    "paymentMethod": "UPI (Google Pay)",
+    "address": {
+      "name": "Arjun Reddy",
+      "phone": "+91 99520 44871",
+      "street": "60, Anna Nagar Main Road",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "pincode": "500081"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-36888116",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Arjun Reddy",
+      "email": "arjun.reddy@gmail.com",
+      "phone": "+91 99520 44871"
+    },
+    "receivedAt": "2026-10-04T03:12:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-313021",
+    "date": "2026-10-04",
+    "items": [
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 2
+      }
+    ],
+    "subtotal": 24998,
+    "discount": 1000,
+    "deliveryFee": 0,
+    "total": 23998,
+    "paymentMethod": "UPI (PhonePe)",
+    "address": {
+      "name": "Divya Krishnan",
+      "phone": "+91 97910 33218",
+      "street": "44, Lake View Street",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641002"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-96474536",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Divya Krishnan",
+      "email": "divya.k@gmail.com",
+      "phone": "+91 97910 33218"
+    },
+    "receivedAt": "2026-10-04T03:01:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-312819",
+    "date": "2026-10-04",
+    "items": [
+      {
+        "id": 108,
+        "title": "Sartorial Cashmere Overcoat with Silk Lining",
+        "brand": "Sartoria Milano",
+        "category": "fashion",
+        "price": 28999,
+        "originalPrice": 38999,
+        "thumbnail": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&q=80",
+        "quantity": 1
+      },
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 41498,
+    "discount": 1660,
+    "deliveryFee": 0,
+    "total": 39838,
+    "paymentMethod": "UPI (PhonePe)",
+    "address": {
+      "name": "Priya Sharma",
+      "phone": "+91 98840 11223",
+      "street": "29, MG Road",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "pincode": "600028"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-14587962",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Priya Sharma",
+      "email": "priya.sharma@gmail.com",
+      "phone": "+91 98840 11223"
+    },
+    "receivedAt": "2026-10-04T01:39:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-312898",
+    "date": "2026-10-03",
+    "items": [
+      {
+        "id": 106,
+        "title": "Lumix Quantum 4K Laser Cinema Projector",
+        "brand": "Lumix Vision",
+        "category": "electronics",
+        "price": 119999,
+        "originalPrice": 149999,
+        "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+        "quantity": 2
+      },
+      {
+        "id": 105,
+        "title": "Maison De Nuit 24K Gold Botanical Elixir & Fragrance",
+        "brand": "Maison De Nuit",
+        "category": "beauty",
+        "price": 12499,
+        "originalPrice": 16999,
+        "thumbnail": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        "quantity": 2
+      }
+    ],
+    "subtotal": 264996,
+    "discount": 10600,
+    "deliveryFee": 0,
+    "total": 254396,
+    "paymentMethod": "Card (Ending 4821)",
+    "address": {
+      "name": "Rahul Verma",
+      "phone": "+91 98110 23457",
+      "street": "55, MG Road",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-62779320",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Rahul Verma",
+      "email": "rahul.verma@gmail.com",
+      "phone": "+91 98110 23457"
+    },
+    "receivedAt": "2026-10-03T08:13:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-313453",
+    "date": "2026-10-03",
+    "items": [
+      {
+        "id": 102,
+        "title": "Apex Celestial Titanium Automatic Chronograph Watch",
+        "brand": "Apex Horology",
+        "category": "accessories",
+        "price": 89999,
+        "originalPrice": 119999,
+        "thumbnail": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 89999,
+    "discount": 9000,
+    "deliveryFee": 0,
+    "total": 80999,
+    "paymentMethod": "Cash on Delivery",
+    "address": {
+      "name": "Priya Sharma",
+      "phone": "+91 98840 11223",
+      "street": "46, Lake View Street",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "pincode": "600028"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-90163579",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Priya Sharma",
+      "email": "priya.sharma@gmail.com",
+      "phone": "+91 98840 11223"
+    },
+    "receivedAt": "2026-10-03T01:53:15.625Z",
+    "sample": true
+  },
+  {
+    "id": "NOV-313332",
+    "date": "2026-10-03",
+    "items": [
+      {
+        "id": 101,
+        "title": "Nova Horizon Pro ANC Spatial Wireless Headphones",
+        "brand": "Nova Acoustics",
+        "category": "electronics",
+        "price": 24999,
+        "originalPrice": 32999,
+        "thumbnail": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+        "quantity": 1
+      },
+      {
+        "id": 102,
+        "title": "Apex Celestial Titanium Automatic Chronograph Watch",
+        "brand": "Apex Horology",
+        "category": "accessories",
+        "price": 89999,
+        "originalPrice": 119999,
+        "thumbnail": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
+        "quantity": 1
+      }
+    ],
+    "subtotal": 114998,
+    "discount": 11500,
+    "deliveryFee": 0,
+    "total": 103498,
+    "paymentMethod": "Card (Ending 4821)",
+    "address": {
+      "name": "Karthik Raja",
+      "phone": "+91 98430 77654",
+      "street": "52, Park Avenue",
+      "city": "Madurai",
+      "state": "Tamil Nadu",
+      "pincode": "625001"
+    },
+    "status": "Delivered",
+    "trackingNumber": "NOV-EXP-18042438",
+    "carrier": "NOVA Express Fleet",
+    "estimatedDelivery": "Tomorrow by 2:00 PM",
+    "trackingSteps": [
+      {
+        "status": "Confirmed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Packed",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Shipped",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Out for Delivery",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      },
+      {
+        "status": "Delivered",
+        "date": "Done",
+        "completed": true,
+        "desc": ""
+      }
+    ],
+    "customer": {
+      "name": "Karthik Raja",
+      "email": "karthik.raja@gmail.com",
+      "phone": "+91 98430 77654"
+    },
+    "receivedAt": "2026-10-03T01:21:15.625Z",
+    "sample": true
+  }
+]

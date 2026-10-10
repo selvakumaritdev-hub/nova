@@ -1,0 +1,102 @@
+// ==========================================================================
+// NOVA MALL - Flagship Stores Data
+// ==========================================================================
+
+export const storesData = [
+  {
+    id: "store-mum",
+    city: "Mumbai",
+    city_ta: "மும்பை",
+    city_hi: "मुंबई",
+    name: "NOVA Flagship Palace - Bandra Kurla Complex",
+    address: "G-Block, Bandra Kurla Complex, Bandra East, Mumbai, MH 400051",
+    phone: "+91 (022) 8900 1100",
+    email: "bkc.flagship@novamall.com",
+    hours: "10:00 AM – 10:00 PM (Daily)",
+    image: "https://images.unsplash.com/photo-1567449303078-57ad995bd301?w=800&q=80",
+    amenities: ["360° VR Product Pods", "NOVA+ VIP Lounge", "Genius Tech Bar", "Champagne Cafe", "Complimentary Valet"],
+    lat: 19.0657,
+    lng: 72.8688,
+    status: "Open Today"
+  },
+  {
+    id: "store-blr",
+    city: "Bengaluru",
+    city_ta: "பெங்களூரு",
+    city_hi: "बेंगलुरु",
+    name: "NOVA Tech Horizon - Indiranagar",
+    address: "100ft Road, HAL 2nd Stage, Indiranagar, Bengaluru, KA 560038",
+    phone: "+91 (080) 4122 8899",
+    email: "indiranagar@novamall.com",
+    hours: "10:00 AM – 10:30 PM (Daily)",
+    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+    amenities: ["Interactive Gaming Pod", "Audiophile Sound Studio", "Fast Charging Hub", "Artisan Coffee Bar"],
+    lat: 12.9784,
+    lng: 77.6408,
+    status: "Open Today"
+  },
+  {
+    id: "store-del",
+    city: "Delhi NCR",
+    city_ta: "டெல்லி NCR",
+    city_hi: "दिल्ली एनसीआर",
+    name: "NOVA Imperial Square - Connaught Place",
+    address: "Inner Circle, Block C, Connaught Place, New Delhi, DL 110001",
+    phone: "+91 (011) 2341 5566",
+    email: "delhi.cp@novamall.com",
+    hours: "10:30 AM – 9:30 PM (Daily)",
+    image: "https://images.unsplash.com/photo-1519642918688-7e43b19245d8?w=800&q=80",
+    amenities: ["VIP Styling Suite", "Horology Repair Lab", "Personal Shopper Concierge", "Valet Parking"],
+    lat: 28.6328,
+    lng: 77.2197,
+    status: "Open Today"
+  },
+  {
+    id: "store-chn",
+    city: "Chennai",
+    city_ta: "சென்னை",
+    city_hi: "चेन्नई",
+    name: "NOVA Coastal Grandeur - Nungambakkam",
+    address: "Khader Nawaz Khan Road, Nungambakkam, Chennai, TN 600006",
+    phone: "+91 (044) 4210 7788",
+    email: "chennai.knk@novamall.com",
+    hours: "10:00 AM – 10:00 PM (Daily)",
+    image: "https://images.unsplash.com/photo-1582037928769-181f2644ecb7?w=800&q=80",
+    amenities: ["Silk & Fashion Atelier", "3D Fit Scanner", "NOVA+ Lounge", "Organic Tea Bar"],
+    lat: 13.0604,
+    lng: 80.2446,
+    status: "Open Today"
+  },
+  {
+    id: "store-hyd",
+    city: "Hyderabad",
+    city_ta: "ஹைதராபாத்",
+    city_hi: "हैदराबाद",
+    name: "NOVA Cyber Sanctuary - Jubilee Hills",
+    address: "Road No. 36, Jubilee Hills, Hyderabad, TS 500033",
+    phone: "+91 (040) 6789 3322",
+    email: "hyderabad.jh@novamall.com",
+    hours: "10:00 AM – 10:00 PM (Daily)",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+    amenities: ["Luxury Watch Salon", "Smart Home Experience Lab", "Private Fitting Salons"],
+    lat: 17.4326,
+    lng: 78.4071,
+    status: "Open Today"
+  },
+  {
+    id: "store-dxb",
+    city: "Dubai",
+    city_ta: "துபாய்",
+    city_hi: "दुबई",
+    name: "NOVA Global Oasis - Downtown Dubai",
+    address: "Financial Center Road, Downtown Dubai, UAE",
+    phone: "+971 (04) 388 9900",
+    email: "dubai.downtown@novamall.com",
+    hours: "10:00 AM – 12:00 AM (Daily)",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+    amenities: ["Ultra-Luxury Private Suites", "Helicopter Transfer Concierge", "Gold Bar Vault", "Bespoke Tailoring"],
+    lat: 25.1972,
+    lng: 55.2744,
+    status: "Open Today"
+  }
+];
